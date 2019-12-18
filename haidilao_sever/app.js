@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+// var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -31,7 +31,7 @@ app.use(session({
 }));//将服务器的session，放在req.session中
 
 // 引入静态页面
-app.use(express.static(path.join(__dirname,"views")));
+app.use(express.static(path.join(__dirname,"images")));
 /*使用路由器来管理路由*/
 app.use("/index",index);
 
