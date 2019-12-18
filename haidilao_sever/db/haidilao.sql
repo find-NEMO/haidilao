@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS index_carousel1 (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '轮播图';
 -- 插入之前先把表清空
 -- TRUNCATE TABLE index_carousel1;
-INSERT INTO index_carousel1 (title, img_url) values ("轮播1", "index/lunbo1.png");
-INSERT INTO index_carousel1 (title, img_url) values ("轮播2", "index/lunbo2.png");
-INSERT INTO index_carousel1 (title, img_url) values ("轮播3", "index/lunbo3.png");
-INSERT INTO index_carousel1 (title, img_url) values ("轮播4", "index/lunbo4.png");
-INSERT INTO index_carousel1 (title, img_url) values ("轮播5", "index/lunbo5.png");
+INSERT INTO index_carousel1 (title, img_url) values ("轮播1", "/index/lunbo1.png");
+INSERT INTO index_carousel1 (title, img_url) values ("轮播2", "/index/lunbo2.png");
+INSERT INTO index_carousel1 (title, img_url) values ("轮播3", "/index/lunbo3.png");
+INSERT INTO index_carousel1 (title, img_url) values ("轮播4", "/index/lunbo4.png");
+INSERT INTO index_carousel1 (title, img_url) values ("轮播5", "/index/lunbo5.png");

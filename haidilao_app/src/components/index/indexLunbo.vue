@@ -1,7 +1,7 @@
 <template>
   <div id="lunbo">
   <mt-swipe :auto="4000">
-    <mt-swipe-item v-for="(item,i) of carousel" :key="i"><router-link to="/lunboDetail/2"> <img :src="'http://localhost:4000/'+item.img_url" alt=""></router-link></mt-swipe-item>
+    <mt-swipe-item v-for="(item,i) of carousel" :key="i"><router-link to="/lunboDetail/2"> <img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL"></router-link></mt-swipe-item>
     
   </mt-swipe>
   </div>
