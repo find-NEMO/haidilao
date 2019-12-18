@@ -9,7 +9,7 @@ import MintUI from "mint-ui"
 import "mint-ui/lib/style.css"
 
 
-axios.defaults.baseURL="http://127.0.0.1:4000";
+axios.defaults.baseURL="http://" + window.location.hostname + ":4000";
 axios.defaults.withCredentials=true;
 Vue.prototype.axios=axios;
 Vue.use(vant);
