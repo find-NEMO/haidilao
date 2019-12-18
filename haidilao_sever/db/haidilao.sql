@@ -2,7 +2,7 @@
 -- SET AUTOCOMMIT = 0;
 -- START TRANSACTION;
 -- SET time_zone = "+00:00";
-CREATE DATABASE IF NOT EXISTS haidilao DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+-- CREATE DATABASE IF NOT EXISTS haidilao DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE haidilao;
 DROP TABLE IF EXISTS index_carousel1;

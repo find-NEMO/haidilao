@@ -2,7 +2,7 @@
   <div>
     <!-- 头部 -->
     <div class="head">
-      <a href=""><img src="../assets/index/su_header_bar_back.png" alt=""></a>
+      <router-link to="/index"><img src="../assets/index/su_header_bar_back.png" alt=""></router-link>
       <span>商品详情</span>
     </div>
     <!-- 主图 -->
