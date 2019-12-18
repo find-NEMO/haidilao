@@ -1,11 +1,8 @@
 <template>
   <div id="lunbo">
   <mt-swipe :auto="4000">
-    <mt-swipe-item><a href=""> <img src="../../assets/index/lunbo1.png" alt=""></a></mt-swipe-item>
-    <mt-swipe-item><router-link to="/lunboDetail/2"> <img src="../../assets/index/lunbo2.png" alt=""></router-link></mt-swipe-item>
-    <mt-swipe-item><a href=""> <img src="../../assets/index/lunbo3.png" alt=""></a></mt-swipe-item>
-    <mt-swipe-item><a href=""> <img src="../../assets/index/lunbo4.png" alt=""></a></mt-swipe-item>
-    <mt-swipe-item><a href=""> <img src="../../assets/index/lunbo5.png" alt=""></a></mt-swipe-item>
+    <mt-swipe-item v-for="(item,i) of carousel" :key="i"><router-link to="/lunboDetail/2"> <img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL"></router-link></mt-swipe-item>
+    
   </mt-swipe>
   </div>
 </template>
@@ -13,8 +10,16 @@
 export default {
   data(){
     return {
-      
+      carousel:[]
     }
+  },
+  created(){
+    var url = "index/carousel1";
+    console.log(1);
+    this.axios.get(url).then(res=>{
+      console.log(res.data);
+      this.carousel=res.data;
+    })
   }
 }
 </script>

@@ -1,7 +1,7 @@
 const express=require("express");
 var router=express.Router();
 var pool=require("../pool");
-router.get("/",(req,res)=>{
+router.get("/carousel1",(req,res)=>{
   console.log(111);
   var sql="SELECT * FROM index_carousel1";
   pool.query(sql,[],(err,result)=>{
