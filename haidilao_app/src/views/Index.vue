@@ -12,6 +12,7 @@
     <!-- 话题 -->
     <topic></topic>
     <!-- 底部导航条 -->
+    <index-foot></index-foot>
     
   </div>
 </template>
@@ -22,7 +23,7 @@ import indexLunbo from "../components/index/indexLunbo"
 import indexGoods from "../components/index/indexGoods"
 import topic from "../components/index/topic"
 import tabBar from "../components/index/tabBar"
-
+import indexFoot from "../components/index/indexFoot"
 export default {
   components:{
     titlebar,
@@ -30,7 +31,7 @@ export default {
     indexLunbo,
     indexGoods,
     topic,
-    // tabBar
+    indexFoot
   },
 //   data(){
 //     return {

@@ -39,7 +39,7 @@ export default {
 </script>
 <style scoped>
     .topic{
-        height:300px;
+        height:250px;
         padding:5px;
     }
     .title{
