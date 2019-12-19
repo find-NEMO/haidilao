@@ -1,65 +1,48 @@
 <template>
-  <div>
-    <!-- 顶部导航栏 -->
-    <title-bar></title-bar>
-    <!-- 面板 -->
-    <!-- 主要功能 -->
-    <main-mode></main-mode>
-    <!-- 轮播 -->
-    <index-lunbo></index-lunbo>
-    <!-- 商品 -->
-    <index-goods></index-goods>
-    <!-- 话题 -->
-    <topic></topic>
-    <!-- 底部导航条 -->
-    <mt-tabbar v-model="active" fixed>
+    <div>
+         <mt-tabbar v-model="active" fixed>
       <mt-tab-item id="home" @click.native="changeState(1)">
-        <index-foot
+        
+        <div
         :selectedImage="require('../assets/index/main_navbar_home_select.png')"
         :normalImage="require('../assets/index/main_navbar_home_normal.png')"
         :focused="currentIndex[0].isSelect"
-        ></index-foot>首页  
+        >
+        <img :src="focused?selectedImage:normalImage" alt="" class="imgstyle"/>
+        </div>首页  
       </mt-tab-item>
       <mt-tab-item id="shequ" @click.native="changeState(2)">
-        <index-foot
+        <div
         :selectedImage="require('../assets/index/main_navbar_explore_select.png')"
         :normalImage="require('../assets/index/main_navbar_explore_normal.png')"
         :focused="currentIndex[0].isSelect"
-        ></index-foot>社区 
+        >
+        <img :src="focused?selectedImage:normalImage" alt="" class="imgstyle"/>
+        </div>社区 
       </mt-tab-item>
       <mt-tab-item id="vip" @click.native="changeState(3)">
-        <index-foot
+        <div
         :selectedImage="require('../assets/index/main_navbar_associator_select.png')"
         :normalImage="require('../assets/index/main_navbar_associator_normal.png')"
         :focused="currentIndex[0].isSelect"
-        ></index-foot>会员 
+        >
+        <img :src="focused?selectedImage:normalImage" alt="" class="imgstyle"/>
+        </div>会员 
       </mt-tab-item>
       <mt-tab-item id="my" @click.native="changeState(4)">
-        <index-foot
+        <div
         :selectedImage="require('../assets/index/main_navbar_mine_select.png')"
         :normalImage="require('../assets/index/main_navbar_mine_normal.png')"
         :focused="currentIndex[0].isSelect"
-        ></index-foot>我的 
+        >
+        <img src="`focused?'../assets/index/main_navbar_mine_select.png':'../assets/index/main_navbar_mine_normal.png'`" alt="" class="imgstyle"/>
+        </div>我的 
       </mt-tab-item>
     </mt-tabbar>
-  </div>
+    </div>
 </template>
 <script>
-import TitleBar from "../components/index/TitleBar"
-import MainMode from "../components/index/MainMode"
-import IndexLunbo from "../components/index/IndexLunbo"
-import IndexGoods from "../components/index/IndexGoods"
-import Topic from "../components/index/Topic"
-import IndexFoot from "../components/index/IndexFoot"
 export default {
-  components:{
-    TitleBar,
-    MainMode,
-    IndexLunbo,
-    IndexGoods,
-    Topic,
-    IndexFoot
-  },
   data(){
     return {
        active:"home",
@@ -69,10 +52,13 @@ export default {
         {isSelect:false},
         {isSelect:false},
         {isSelect:false}
-      ]
+      ],
+      focused:true,
+    selectedImage:{default:""},
+    normalImage:{default:""}
     }
   },
-  methods: {
+  methods:{
     changeState(n){
       //函数功能:将当前参数下标
       //对应数组值修改true其它修改false
@@ -87,28 +73,8 @@ export default {
         //4:其它元素修改false
         this.currentIndex[i].isSelect=false;
        }
-       
       }
-      if(n==1){
-       this.$router.push("/home"); 
-       } else if(n==2) {
-         this.$router.push("/home");
-       }  else if(n==3){
-          this.$router.push("/member");
-       }else if(n==4){
-          this.$router.push("/home");
-       }
     }
-  },
-  
+  }
 }
 </script>
-<style scoped>
-.mint-tabbar>.mint-tab-item{
-  color:#000;
-}
-.mint-tabbar>.mint-tab-item.is-selected{
-  background-color: transparent;
-  color:red;
-}
-</style>

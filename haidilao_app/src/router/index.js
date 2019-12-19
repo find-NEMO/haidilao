@@ -10,6 +10,8 @@ import Login from '../components/Login.vue'
 import Loginp from '../components/Loginp.vue'
 import Findpwd from '../components/Findpwd.vue'
 import Privacy from '../components/Privacy.vue'
+import test from '../views/test.vue'
+
 
 Vue.use(VueRouter)
 
@@ -29,6 +31,7 @@ const routes = [
   {path:"/IndexLunboDetails/:id",
   component:IndexLunboDetails},
   {path:"/IndexLunboDetails/2",component:IndexLunboDetails},
+  {path:"/test",component:test},
   {
     path:"/login",
     component:()=>import(/* webpackChunkName:"login" */ "../components/Login.vue")

@@ -8,14 +8,14 @@
         <a href=""><img src="../../assets/index/laoxiaomi_kefu.png" alt=""></a>
         <a href=""><img src="../../assets/index/more_big.png" alt=""></a>
       </div>
-      <!-- <div class="two">
+      <div class="two">
         成为会员尊享更多权益
         <a href=""><img src="../../assets/index/sign_in.png" alt=""></a>
       </div>
       <div class="three">
-        <button>登录/注册</button>
-      </div> -->
-      <div class="two0">
+        <button @click="login">登录/注册</button>
+      </div>
+      <!-- <div class="two0">
         <img src="../../assets/index/my_vip_red.png" alt="">
         <a href=""><img src="../../assets/index/sign_in.png" alt=""></a>
       </div>
@@ -23,7 +23,7 @@
         <p><span>0</span>捞币</p>
         <p><span>0</span>券</p>
         <p>去兑换<img src="../../assets/index/coin_arrows_white.png" alt=""> </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -33,6 +33,11 @@ export default {
   data(){
     return {
 
+    }
+  },
+  methods:{
+    login(){
+      this.$router.push("/Login");
     }
   }
 }

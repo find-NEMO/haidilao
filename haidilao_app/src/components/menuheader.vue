@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             iconN:"wap-home-o",
-            toURL:"/index"
+            toURL:"/home"
         }
     },
     methods: {
