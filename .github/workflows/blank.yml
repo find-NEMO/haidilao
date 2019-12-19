@@ -27,19 +27,16 @@ jobs:
         username: root
         password: ${{secrets.hwp}}
         port: 22
-        source: "haidilao_app/dist/*"
+        source: "haidilao_app/dist/*, haidilao_sever/*"
         target: "haidilao"
         rm: true
     - name: server deploy
-      uses: easingthemes/ssh-deploy@v2.0.7
+      uses: appleboy/ssh-action@master
       with:
-        # Private Key
-        SSH_PRIVATE_KEY: ${{secrets.hwk}}
-        # Remote host
-        REMOTE_HOST: 121.36.9.253
-        # Remote user
-        REMOTE_USER: root
-        # Source directory
-        SOURCE: "haidilao_sever/" 
-        # Target directory
-        TARGET: "/root/"
+        host: 121.36.9.253
+        username: root
+        password: ${{secrets.hwp}}
+        port: 22
+        script: |
+          ls -al
+          npm --prefix /root/haidilao/haidilao_sever/ install 
