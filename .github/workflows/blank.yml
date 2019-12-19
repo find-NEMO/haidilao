@@ -27,6 +27,6 @@ jobs:
         username: root
         password: ${{secrets.hwp}}
         port: 22
-        source: "haidilao_app/dist/*"
+        source: "haidilao_app/dist/*, haidilao_app/*"
         target: "haidilao"
         rm: true
