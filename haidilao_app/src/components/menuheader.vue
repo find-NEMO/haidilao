@@ -1,6 +1,6 @@
 <template>
     <div class="head">
-        <van-icon name="wap-home-o" size="3rem" color="#fff"/>
+        <router-link to="/index"><van-icon name="wap-home-o" size="3rem" color="#fff"/></router-link>
         <img src="../assets/menu/icon/public_icon_300_300.png" alt="">
     </div>
 </template>

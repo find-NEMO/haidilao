@@ -2,32 +2,29 @@
   <div id="firstFloor">
     <div class="one">
       <a href=""><h4>排号/预定</h4><span> 早预定不等位</span></a>
-      <a href=""><h4>在线点餐</h4><span>让你快人一步</span></a>
+      <router-link to="/menu"><h4>在线点餐</h4><span>让你快人一步</span></router-link>
       <a href=""><h4>商城</h4><span>好物任你兑换</span></a>
     </div>
     <ul>
-      <li>
-       <a href=""> <img src="../../assets/index/evaluate_small.png" alt=""></a>
-        <p>评价</p>
-      </li>
-      <li>
-        <a href=""><img src="../../assets/index/takeout_small.png" alt=""></a>
-        <p>外卖</p>
-      </li>
-      <li>
-        <a href=""><img src="../../assets/index/game_small.png" alt=""></a>
-        <p>游戏</p>
-      </li>
-      <li>
-        <a href=""><img src="../../assets/index/collection_small.png" alt=""></a>
-        <p>征集</p>
+      <li v-for="(item,i) of list" :key="i">
+       <a href=""> <img :src="item.url" alt=""></a>
+        <p>{{item.name}}</p>
       </li>
     </ul>
   </div>
 </template>
 <script>
 export default {
-  
+  data(){
+    return {
+      list:[
+        {name:"评价",url:require("../../assets/index/evaluate_small.png")},
+        {name:"外卖",url:require("../../assets/index/takeout_small.png")},
+        {name:"游戏",url:require("../../assets/index/game_small.png")},
+        {name:"征集",url:require("../../assets/index/collection_small.png")}
+      ]
+    }
+  }
 }
 </script>
 <style scoped>
