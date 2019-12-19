@@ -13,7 +13,7 @@ export default {
       carousel:[]
     }
   },
-  created(){
+  beforeCreate(){
     var url = "index/carousel1";
     console.log(1);
     this.axios.get(url).then(res=>{

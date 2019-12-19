@@ -8,49 +8,46 @@
     <!-- content -->
     <!--one -->
     <div class="goodsOne">
-        <a href="">
-            <img src="../../assets/index/goods1.png" alt="">
-            <p>海底捞口袋坚果1盒375克</p>
-            <span>1380捞币</span>
-            <span>兑换5805</span>
-        </a>
-        <a href="">
-             <img src="../../assets/index/goods2.png" alt="">
-            <p>小龙虾1盒装 6~8钱/只...</p>
-            <span>999捞币</span>
-            <span>兑换598</span>
-        </a>
-    </div>
-    <!-- two -->
-    <div class="goodsOne">
-        <a href="">
-            <img src="../../assets/index/goods3.png" alt="">
-            <p>海底捞 捞派滑牛肉1盒...</p>
-            <span>900捞币</span>
-            <span>兑换292</span>
-        </a>
-        <a href="">
-             <img src="../../assets/index/goods4.png" alt="">
-            <p>海底捞捞派虾滑1盒 火...</p>
-            <span>1099捞币</span>
-            <span>兑换254</span>
+        <a href="" v-for="(item,i) of goods" :key="i">
+            <img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL">
+            <p>{{item.goods_title}}</p>
+            <span>{{item.price}}捞币</span>
+            <span>兑换{{item.goods_count}}</span>
         </a>
     </div>
   </div>
 </template>
 <script>
 export default {
-    
+    data(){
+        return {
+            goods:[]
+        }
+    },
+    beforeCreate() {
+        var url = "index/goods";
+        console.log(3);
+        this.axios.get(url).then(res=>{
+        console.log(res.data);
+        this.goods=res.data;
+    })
+    },
 }
 </script>
 <style scoped>
 .goods .title{
     padding:0px 13px;
 }
-.title,.goodsOne{
+.title{
     display:flex;
     justify-content: space-between;
     margin-top:10px;
+}
+.goodsOne{
+    display:flex;
+    justify-content: flex-start;
+    margin-top:10px;
+    flex-wrap: wrap;
 }
 h4{
     margin-bottom:10px;
@@ -64,11 +61,10 @@ h4{
     margin-left:5px;
 }
 .goodsOne a{
-    display:block;
     padding:0 10px;
 }
 .goodsOne img{
-    width:100%;
+    width:167px;
 }
 .goodsOne p{
     color:#000;
