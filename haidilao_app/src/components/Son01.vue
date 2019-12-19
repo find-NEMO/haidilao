@@ -30,6 +30,7 @@ export default {
         background-image:url(../assets/member/bg.png);
         background-size:contain;
         background-repeat:no-repeat;
+        margin-top:30px;
     }
     /* 海底捞会员 文字 */
     .flex1{

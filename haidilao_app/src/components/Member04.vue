@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="clear">
         <ul>
             <li class="li1">
                 <span>成长值 0</span>
@@ -25,6 +25,7 @@
     </div>
 </template>
 <style scoped>
+    .clear{clear:both;}
     ul{
         margin:30px 15px;
         display:flex;

@@ -13,12 +13,14 @@
         <!--  -->
         <ul class="flex">
             <li class="li11">
-                <img src="../assets/member/food1.png" alt="">
-                <p>小龙虾一盒套装</p>
-                <p>
-                    <span>999捞币</span>
-                    <span>兑换677</span>
-                </p>
+                <router-link to="/lunboDetail/2">
+                    <img src="../assets/member/food1.png" alt="">
+                    <p>小龙虾一盒套装</p>
+                    <p>
+                        <span>999捞币</span>
+                        <span>兑换677</span>
+                    </p>
+                </router-link>
             </li>
             <li class="li12">
                 <img src="../assets/member/food2.png" alt="">
@@ -71,16 +73,19 @@
     }
     .flex li{
         width:33.3%;
+        
     }
     .flex li img{
         width:100%;
     }
     .flex li p:nth-child(2){
         font-size:14px;
+        color:#000;
     }
     .flex li p:last-child{
         font-size:10px;
         margin-top:-10px;
+        color:#000;
     }
     .flex li p:last-child span:first-child{
         color:#d8942e;

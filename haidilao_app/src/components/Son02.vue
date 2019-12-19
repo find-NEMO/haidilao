@@ -1,43 +1,72 @@
 <template>
-    <div>
+    <div id="list">
         <ul class="flex">
-            <li>
-                <a href=""><img src="../assets/member/img1.png" alt=""></a>
-                <p><a href="">捞币换礼</a></p>
+            <li v-for="(p,i) of list" :key="i">
+                <router-link to="/Jump">
+                    <a href=""><img :src="axios.defaults.baseURL+p.tpic" alt=""></a>
+                    <p><a href="">{{p.ttitle}}</a></p>
+                </router-link>
+            </li>
+            <!-- <li>
+                <router-link to="/Jump">
+                    <a href=""><img src="../assets/member/img2.png" alt=""></a>
+                    <p><a href="">生日赠礼</a></p>
+                </router-link>
             </li>
             <li>
-                <a href=""><img src="../assets/member/img2.png" alt=""></a>
-                <p><a href="">生日赠礼</a></p>
+                <router-link to="/Jump">
+                    <a href=""><img src="../assets/member/img3.png" alt=""></a>
+                    <p><a href="">升级礼遇</a></p>
+                </router-link>
             </li>
             <li>
-                <a href=""><img src="../assets/member/img3.png" alt=""></a>
-                <p><a href="">升级礼遇</a></p>
+                <router-link to="/Jump">
+                    <a href=""><img src="../assets/member/img4.png" alt=""></a>
+                    <p><a href="">线下活动</a></p>
+                </router-link>
             </li>
             <li>
-                <a href=""><img src="../assets/member/img4.png" alt=""></a>
-                <p><a href="">线下活动</a></p>
+                <router-link to="/Jump">
+                    <a href=""><img src="../assets/member/img5.png" alt=""></a>
+                    <p><a href="">VIP专享</a></p>
+                </router-link>
             </li>
             <li>
-                <a href=""><img src="../assets/member/img5.png" alt=""></a>
-                <p><a href="">VIP专享</a></p>
+                <router-link to="/Jump">
+                    <a href=""><img src="../assets/member/img6.png" alt=""></a>
+                    <p><a href="">包间会议</a></p>
+                </router-link>
             </li>
             <li>
-                <a href=""><img src="../assets/member/img6.png" alt=""></a>
-                <p><a href="">包间会议</a></p>
-            </li>
-            <li>
-                <a href=""><img src="../assets/member/img7.png" alt=""></a>
-                <p><a href="">黑海通道</a></p>
+                <router-link to="/Jump">
+                    <a href=""><img src="../assets/member/img7.png" alt=""></a>
+                    <p><a href="">黑海通道</a></p>
+                </router-link>
             </li>
             <li>
                 <a href=""><img src="../assets/member/img8.png" alt=""></a>
                 <p><a href="">期待更多</a></p>
-            </li>
+            </li> -->
         </ul>
     </div>
 </template>
 <script>
 export default {
+    data(){
+        return {
+            list:[]
+        }
+    },
+    created(){
+        var url = "member/mto";
+        console.log(1);
+        this.axios.get(url)
+        .then(res=>{
+            console.log(res.data);
+            this.list=res.data;
+        })
+        .catch(err=>{console.log(err)})
+    },
     props:{
         props:{
             leftTitle:"",

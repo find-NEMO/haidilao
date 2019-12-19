@@ -1,23 +1,38 @@
 <template>
     <div>
         <ul class="flex">
-            <li>
-                <a href=""><img src="../assets/member/img1.png" alt=""></a>
-                <p><a href="">捞币换礼</a></p>
-            </li>
-            <li>
-                <a href=""><img src="../assets/member/img2.png" alt=""></a>
-                <p><a href="">生日赠礼</a></p>
-            </li>
-            <li>
-                <a href=""><img src="../assets/member/img33.png" alt=""></a>
-                <p><a href="">升级礼遇</a></p>
-                <p class="close">
-                    <img src="../assets/member/close.png">
-                    <span>银海解锁</span>
-                </p>
-            </li>
-            <li>
+            <!-- <div id="list1"> -->
+                <li v-for="(p1,i) of list1" :key="i">
+                    <router-link to="/Jump">
+                        <img :src="axios.defaults.baseURL+p1.tpic_y" alt="">
+                        <p><a href="">{{p1.ttitle}}</a></p>
+                        <p class="close" v-show="i>1&&i<8">
+                            <img :src="axios.defaults.baseURL+p1.tpic0">
+                            <span>{{p1.tsubtitle0}}</span>
+                        </p>
+                    </router-link>
+                </li>
+            <!-- <li>
+                <router-link to="/Jump">
+                    <img src="../assets/member/img2.png" alt="">
+                    <p><a href="">生日赠礼</a></p>
+                </router-link>               
+            </li> -->
+            <!-- </div> -->
+            
+            <!-- <div id="list2"> -->
+                <!-- <li v-for="(p2,i) of list2" :key="i">
+                    <router-link to="/Jump">
+                        <a href=""><img :src="axios.defaults.baseURL+p2.tpic_y" alt=""></a>
+                        <p><a href="">{{p2.ttitle}}</a></p>
+                        <p class="close">
+                            <img :src="axios.defaults.baseURL+p2.tpic0">
+                            <span>{{p2.tsubtitle0}}</span>
+                        </p>
+                    </router-link>
+                </li> -->
+            <!-- </div> -->
+            <!-- <li>
                 <a href=""><img src="../assets/member/img44.png" alt=""></a>
                 <p><a href="">线下活动</a></p>
                 <p class="close">
@@ -48,16 +63,31 @@
                     <img src="../assets/member/close.png">
                     <span>银海解锁</span>
                 </p>
-            </li>
-            <li>
-                <a href=""><img src="../assets/member/img8.png" alt=""></a>
-                <p><a href="">期待更多</a></p>
-            </li>
+            </li> -->
+            <!-- <li id="list3">
+                <a href=""><img :src="axios.defaults.baseURL+list3.tpic_y" alt=""></a>
+                <p><a href="">{{list3.ttitle}}</a></p>
+            </li> -->
         </ul>
     </div>
 </template>
 <script>
 export default {
+    data(){
+        return {
+            list1:[]
+        }
+    },
+    created(){
+        var url = "member/mtoto";
+        console.log(1);
+        this.axios.get(url)
+        .then(res=>{
+            console.log(res.data);
+            this.list1=res.data;
+        })
+        .catch(err=>{console.log(err)})
+    },
     props:{
         props:{
             leftTitle:"",
@@ -72,7 +102,9 @@ export default {
         display:flex;
         flex-wrap:wrap;
         justify-content:space-around;
+        float:left;
     }
+    
     img{
         width:50px;
         margin:0 15px;
