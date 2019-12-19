@@ -19,7 +19,12 @@
                     </router-link>
                     <p class="caiTitle">{{cai.ctitle}}</p>
                     <!-- <van-icon name="add-o" color="#f00" class="iconPlus" size="3rem" /> -->
-                    <change-count class="count"></change-count>
+                    <change-count class="count"
+                        :cid="cai.cid"
+                        :cname="cai.ctitle"
+                        :price="cai.price"
+                        :tid="tNum"
+                    ></change-count>
                     <p class="caiDes">
                         <span class="caitext">{{cai.soutitle}}</span>
                         <span class="price">¥{{cai.price}}</span>
@@ -42,6 +47,7 @@ export default {
     created() {
         this.types();
         this.show(0);
+        // this.showlist();
     },
     components:{
         "navbar-left":navbarLeft,
@@ -56,13 +62,17 @@ export default {
             rows:[],
             activeKey:0,
             tabs:[],
-
+            tNum:1,
+            cartlist:[],
+            info:0,
+            totalprice:0
         }
     },
     methods: {
         show(i){
             var url="product/list";
             var obj={tno:i+1};
+            this.tNum=i+1;
             this.axios.get(url,{params:obj})
             .then((res)=>{
                 this.rows=res.data.data;
@@ -74,7 +84,20 @@ export default {
             .then((res)=>{
                 this.tabs=res.data.data;
             })
-        }       
+        },
+        showlist(){
+            this.axios.get("/cart/list")
+            .then(res=>{
+                this.cartlist=res.data.data;
+                this.info=0;
+                this.totalprice=0;
+                for(var i=0;i<this.cartlist.length;i++){
+                    this.info+=this.cartlist[i].count;
+                    this.totalprice+=this.cartlist[i].count*this.cartlist[i].price;
+                }
+            })            
+        }
+
     },
     
 }

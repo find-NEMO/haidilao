@@ -12,7 +12,7 @@
 export default {
     data() {
         return {
-            count:0
+            
         }
     },
     methods: {
@@ -39,7 +39,7 @@ export default {
             })
         }
     },
-    props:["cid","cname","price","tid","id"]
+    props:["cid","cname","price","tid","count","id"]
     
 }
 </script>

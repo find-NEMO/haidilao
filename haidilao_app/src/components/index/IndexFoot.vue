@@ -29,3 +29,5 @@ export default {
     border-top:1px solid #ddd;
   } */
 </style>
+  }
+</style>
