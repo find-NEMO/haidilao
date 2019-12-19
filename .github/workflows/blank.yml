@@ -40,3 +40,5 @@ jobs:
         script: |
           ls -al
           npm --prefix /root/haidilao/haidilao_sever/ install 
+          fuser -k 4000/tcp
+          npm run serve
