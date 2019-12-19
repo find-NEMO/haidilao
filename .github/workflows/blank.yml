@@ -9,8 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
     - name: Run a multi-line script
       run: |
         #!/usr/bin/env sh
@@ -19,24 +17,28 @@ jobs:
         set -e
 
         cd haidilao_app
-        npm install -g @vue/cli
+        npm install @vue/cli
         # build
         npm run build
-
-        # navigate into the build output directory
-        cd dist
-
-        # if you are deploying to a custom domain
-        # echo 'www.example.com' > CNAME
-
-        git init
-        git add -A
-        git commit -m 'deploy'
-
-        # if you are deploying to https://<USERNAME>.github.io
-        # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-
-        # if you are deploying to https://<USERNAME>.github.io/<REPO>
-         git push -f https://github.com/ChaunceyCheng/haidilao.git master:gh-pages
-
-        cd -
+    - name: copy files
+      uses: appleboy/scp-action@master
+      with:
+        host: 121.36.9.253
+        username: root
+        password: ${{secrets.hwp}}
+        port: 22
+        source: "haidilao_app/dist/*, haidilao_sever/*"
+        target: "haidilao"
+        rm: true
+    - name: server deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: 121.36.9.253
+        username: root
+        password: ${{secrets.hwp}}
+        port: 22
+        script: |
+          ls -al
+          npm --prefix /root/haidilao/haidilao_sever/ install 
+          fuser -k 4000/tcp
+          nohup npm --prefix /root/haidilao/haidilao_sever/ run serve > ./sever.out 2>&1 &

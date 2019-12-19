@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- 顶部导航栏 -->
-    <titlebar></titlebar>
+    <title-bar></title-bar>
     <!-- 面板 -->
-    <!-- firstFloor -->
-    <first-floor></first-floor>
+    <!-- 主要功能 -->
+    <main-mode></main-mode>
     <!-- 轮播 -->
     <index-lunbo></index-lunbo>
     <!-- 商品 -->
@@ -17,21 +17,20 @@
   </div>
 </template>
 <script>
-import titlebar from "../components/index/titleBar"
-import firstFloor from "../components/index/firstFloor"
-import indexLunbo from "../components/index/indexLunbo"
-import indexGoods from "../components/index/indexGoods"
-import topic from "../components/index/topic"
-import tabBar from "../components/index/tabBar"
-import indexFoot from "../components/index/indexFoot"
+import TitleBar from "../components/index/TitleBar"
+import MainMode from "../components/index/MainMode"
+import IndexLunbo from "../components/index/IndexLunbo"
+import IndexGoods from "../components/index/IndexGoods"
+import Topic from "../components/index/Topic"
+import IndexFoot from "../components/index/IndexFoot"
 export default {
   components:{
-    titlebar,
-    firstFloor,
-    indexLunbo,
-    indexGoods,
-    topic,
-    indexFoot
+    TitleBar,
+    MainMode,
+    IndexLunbo,
+    IndexGoods,
+    Topic,
+    IndexFoot
   },
 //   data(){
 //     return {

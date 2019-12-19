@@ -9,7 +9,11 @@ const history = require('connect-history-api-fallback');
 //引入路由模块
 var index = require('./routes/index');
 var menu = require('./routes/menu');
+<<<<<<< HEAD
 var cart = require('./routes/cart');
+=======
+var user = require('./routes/user');
+>>>>>>> d746ca4ca46f509b6faf057add2effdd8ef62c66
 //创建服务器
 var app = express();
 app.use(cors({
@@ -38,6 +42,7 @@ app.use(express.static(path.join(__dirname,"images")));
 app.use("/index",index);
 app.use("/product",menu);
 app.use("/cart",cart);
+app.use("/user",user);
 
 app.use(function(req, res, next) {
     next(createError(404));
