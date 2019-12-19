@@ -9,6 +9,7 @@ const history = require('connect-history-api-fallback');
 //引入路由模块
 var index = require('./routes/index');
 var menu = require('./routes/menu');
+var cart = require('./routes/cart');
 //创建服务器
 var app = express();
 app.use(cors({
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname,"images")));
 /*使用路由器来管理路由*/
 app.use("/index",index);
 app.use("/product",menu);
+app.use("/cart",cart);
 
 app.use(function(req, res, next) {
     next(createError(404));

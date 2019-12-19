@@ -1,8 +1,8 @@
 <template>
     <div>
         <van-goods-action>
-            <van-goods-action-icon icon="cart-o" text="购物车" info="5" @click="onshow"/>
-            <p class="price">¥112</p>
+            <van-goods-action-icon icon="cart-o" text="购物车" :info="info" @click="onshow"/>
+            <p class="price">{{totalprice}}</p>
             <van-goods-action-button type="danger" text="下单" />
         </van-goods-action> 
         <van-popup v-model="show" position="bottom" class="menuCar">
@@ -14,11 +14,15 @@
                         清空购物车
                     </a>
                 </div>
-                <div class="carlist">
-                    <p>全锅底</p>
+                <div v-for="(item,i) of cartlist" :key="i" class="carlist">
+                    <p>{{item.cname}}</p>
                     <div>
-                        <p class="price">¥72</p>
-                        <change-count class="count"></change-count>
+                        <p class="price">¥{{item.count*item.price}}</p>
+                        <change-count class="count"
+                            :count="item.count"
+                            :id="item.id"
+                            :showlist="showlist"
+                        ></change-count>
                     </div>
                 </div>
             </main> 
@@ -30,13 +34,19 @@ import menuCar from "./menucar";
 import changeCount from "./changeCount";
 
 export default {
+    created() {
+        this.showlist();
+    },
     components:{
         "menu-car":menuCar,
         "change-count":changeCount
     },
     data() {
         return {
-            show:false
+            show:false,
+            cartlist:[],
+            info:0,
+            totalprice:0
         }
     },
     methods: {
@@ -46,6 +56,20 @@ export default {
             // }else{
             //     this.show=false;
             // }
+            this.showlist();
+
+        },
+        showlist(){
+            this.axios.get("/cart/list")
+            .then(res=>{
+                this.cartlist=res.data.data;
+                this.info=0;
+                this.totalprice=0;
+                for(var i=0;i<this.cartlist.length;i++){
+                    this.info+=this.cartlist[i].count;
+                    this.totalprice+=this.cartlist[i].count*this.cartlist[i].price;
+                }
+            })            
         }
     },    
 }
@@ -66,7 +90,7 @@ export default {
         color: #9391a6;
         line-height: 62.75px;
     }
-    .carlist{border-bottom: 1px solid #9391a6;margin-bottom:3.2rem;}
+    .carlist{border-bottom: 1px solid #9391a6;}
     .carlist>div{width: 40%;}
     .carlist .price{
         color: #f00;
