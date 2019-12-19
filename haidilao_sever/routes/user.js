@@ -2,7 +2,7 @@ const express=require("express");
 var router=express.Router();
 var pool=require("../pool");
 //用户账号密码验证
-router.get("/loginp",(req,res)=>{
+router.get("/loginp",(req,res, next)=>{
     //1:获取参数 uname upwd
     var phone = req.query.phone;
     var upwd = req.query.upwd;
@@ -12,7 +12,7 @@ router.get("/loginp",(req,res)=>{
     //3:发送sql并且结果返回脚手架
     pool.query(sql,[phone,upwd],(err,result)=>{
        //4:如果发生严重错误抛出
-       if(err)throw err;
+       if(err)return next(err);
        //5:登录成功用户名密码有错
        console.log(result);
        if(result.length==0){

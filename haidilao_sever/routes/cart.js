@@ -3,7 +3,7 @@ var router=express.Router();
 var pool=require("../pool");
 // 功能一 添加购物车
 // 1. get /addcart
-router.get("/add",(req,res)=>{
+router.get("/add",(req,res, next)=>{
     // 获取当前登录用户的uid
     var uid=1;
     // var uid=req.session.uid;
@@ -21,7 +21,7 @@ router.get("/add",(req,res)=>{
     // 查询用户是否购买过此商品
     var sql="SELECT id FROM hdl_cart WHERE uid=? AND cid=?";
     pool.query(sql,[uid,cid],(err,result)=>{
-      if (err) throw err;
+      if (err) return next(err);
       if(result.length==0){
         // 如果没加购，添加产品
         var sql=`INSERT INTO hdl_cart VALUES (null,${cid},${price},1,'${cname}','${tid}',${uid})`;
@@ -35,7 +35,7 @@ router.get("/add",(req,res)=>{
         }
       }
       pool.query(sql,(err,result)=>{
-        if(err) throw err;
+        if(err) return next(err);
         res.send({code:1,msg:"修改成功"});
       })
     })
@@ -50,7 +50,7 @@ router.get("/add",(req,res)=>{
   // http://127.0.0.1:4000/addcart?lid=1&price=99&lname=apple
 
 // 功能二 查询当前登录用户购物车信息
-router.get("/list",(req,res)=>{
+router.get("/list",(req,res, next)=>{
   // // 获取凭证的uid
   // var uid=req.session.uid;
   // if(!uid){
@@ -60,7 +60,7 @@ router.get("/list",(req,res)=>{
   // pool.query("DELETE FROM hdl_cart WHERE count=0",(err,result)=>{})
   var sql="SELECT id,cid,cname,price,count,tid FROM hdl_cart WHERE uid=1"
   pool.query(sql,(err,result)=>{
-    if (err) throw err;
+    if (err) return next(err);
     res.send({code:1,msg:"查询成功",data:result});
   })
 })
@@ -72,14 +72,14 @@ router.get("/list",(req,res)=>{
 // http://127.0.0.1:4000/findcart?uid=1
 
 // 功能三 删除一条记录
-router.get("/del",(req,res)=>{
+router.get("/del",(req,res, next)=>{
   // // 判断是否登录
   // if(!req.session.uid){
   //   res.send({code:-2,msg:"请登录"});
   // }
   var sql='DELETE FROM hdl_cart WHERE id=?';
   pool.query(sql,[req.query.id],(err,result)=>{
-    if (err) throw err;
+    if (err) return next(err);
     if(result.affectedRows>0){
       res.send({code:1,msg:"删除成功"});
     }else{
