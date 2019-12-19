@@ -2,7 +2,7 @@
   <div>
     <!-- 头部 -->
     <div class="head">
-      <router-link to="/index"><img src="../assets/index/su_header_bar_back.png" alt=""></router-link>
+      <router-link to="/home"><img src="../assets/index/su_header_bar_back.png" alt=""></router-link>
       <span>商品详情</span>
     </div>
     <!-- 主图 -->
@@ -79,13 +79,21 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return {}
+  }
 }
 </script>
 <style scoped>
 .head{
-    display:flex; 
+    display:flex;
+    height:35px;
+    padding:8px 5px; 
   }
+.head img{
+  width:30px;
+  margin-top:5px;
+}
 .head span{
   font-size:20px;
   padding-top:7px;

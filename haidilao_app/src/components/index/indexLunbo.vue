@@ -1,7 +1,8 @@
 <template>
   <div id="lunbo">
   <mt-swipe :auto="4000">
-    <mt-swipe-item v-for="(item,i) of carousel" :key="i"><router-link to="/IndexLunboDetails/2"> <img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL"></router-link></mt-swipe-item>
+    <mt-swipe-item v-for="(item,i) of carousel" :key="i"><router-link 
+    :to="`/IndexLunboDetails/${item.id}`"> <img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL"></router-link></mt-swipe-item>
     
   </mt-swipe>
   </div>
@@ -13,12 +14,14 @@ export default {
       carousel:[]
     }
   },
-  beforeCreate(){
+
+  created(){
     var url = "index/carousel1";
     console.log(1);
     this.axios.get(url).then(res=>{
       console.log(res.data);
       this.carousel=res.data;
+      console.log(this.carousel);
     })
   }
 }

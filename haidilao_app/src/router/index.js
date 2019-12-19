@@ -22,7 +22,8 @@ const routes = [
   {path:"/menu",component:()=>import(/* webpackChunkName:"menu" */ "../views/Menu.vue")},
   {path:"/menudetails/:lid",component:()=>import(/* webpackChunkName:"menudetails" */ "../views/MenuDetails.vue")},
   {path:"/home",component:Index},
-  {path:"/IndexLunboDetails/2",component:IndexLunboDetails}
+  {path:"/IndexLunboDetails/:id",
+  component:IndexLunboDetails}
 ]
 
 const router = new VueRouter({
