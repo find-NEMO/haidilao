@@ -29,4 +29,4 @@ jobs:
         port: 22
         source: "dist/*"
         target: "haidilao"
-        rm: "-r"
+        rm: true
