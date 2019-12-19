@@ -20,10 +20,7 @@ const routes = [
   //  component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   // }
   {path:"/menu",component:()=>import(/* webpackChunkName:"menu" */ "../views/Menu.vue")},
-  {
-    path:"/menu",
-    component:()=>import(/* webpackChunkName:"menu" */ "../views/Menu.vue")
-  },
+  {path:"/menudetails/:lid",component:()=>import(/* webpackChunkName:"menudetails" */ "../views/MenuDetails.vue")},
   {path:"/index",component:Index},
   {path:"/lunboDetail/2",component:lunboDetail}
 ]
