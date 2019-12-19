@@ -19,7 +19,7 @@ jobs:
         set -e
 
         cd haidilao_app
-        npm install -g @vue/cli
+        npm install @vue/cli
         # build
         npm run build
 
