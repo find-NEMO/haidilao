@@ -9,11 +9,8 @@ const history = require('connect-history-api-fallback');
 //引入路由模块
 var index = require('./routes/index');
 var menu = require('./routes/menu');
-<<<<<<< HEAD
 var cart = require('./routes/cart');
-=======
 var user = require('./routes/user');
->>>>>>> d746ca4ca46f509b6faf057add2effdd8ef62c66
 //创建服务器
 var app = express();
 app.use(cors({
