@@ -6,6 +6,10 @@ import Jump from '../views/Jump'
 
 import Index from '../views/Index.vue'
 import IndexLunboDetails from '../views/IndexLunboDetails.vue'
+import Login from '../components/Login.vue'
+import Loginp from '../components/Loginp.vue'
+import Findpwd from '../components/Findpwd.vue'
+import Privacy from '../components/Privacy.vue'
 
 Vue.use(VueRouter)
 
@@ -22,7 +26,23 @@ const routes = [
   {path:"/menu",component:()=>import(/* webpackChunkName:"menu" */ "../views/Menu.vue")},
   {path:"/menudetails/:lid",component:()=>import(/* webpackChunkName:"menudetails" */ "../views/MenuDetails.vue")},
   {path:"/home",component:Index},
-  {path:"/IndexLunboDetails/2",component:IndexLunboDetails}
+  {path:"/IndexLunboDetails/2",component:IndexLunboDetails},
+  {
+    path:"/login",
+    component:()=>import(/* webpackChunkName:"login" */ "../components/Login.vue")
+  },
+  {
+    path:"/loginp",
+    component:()=>import(/* webpackChunkName:"loginp" */ "../components/Loginp.vue")
+  },
+  {
+    path:"/findpwd",
+    component:()=>import(/* webpackChunkName:"findpwd" */ "../components/Findpwd.vue")
+  },
+  {
+    path:"/findpwd",
+    component:()=>import(/* webpackChunkName:"findpwd" */ "../components/Findpwd.vue")
+  },
 ]
 
 const router = new VueRouter({
