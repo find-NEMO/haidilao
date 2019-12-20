@@ -3,7 +3,7 @@
         <ul class="flex">
             <!-- <div id="list1"> -->
                 <li v-for="(p1,i) of list1" :key="i">
-                    <router-link to="/Jump">
+                    <router-link :to="`/Jump/${p1.tid}`">
                         <img :src="axios.defaults.baseURL+p1.tpic_y" alt="">
                         <p><a href="">{{p1.ttitle}}</a></p>
                         <p class="close" v-show="i>1&&i<8">

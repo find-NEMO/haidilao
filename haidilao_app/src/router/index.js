@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import Member from '../views/Member'
 import Jump from '../views/Jump'
+import IndexMessage from '../views/IndexMessage'
 
 import Index from '../views/Index.vue'
 import IndexLunboDetails from '../views/IndexLunboDetails.vue'
@@ -10,7 +11,8 @@ import IndexLunboDetails from '../views/IndexLunboDetails.vue'
 Vue.use(VueRouter)
 
 const routes = [
-    {path:'/Jump',component:Jump},
+    {path:'/IndexMessage',component:IndexMessage},
+    {path:'/Jump/:tid',component:Jump},
     {path:'/Member',component:Member},
   // {path: '/',name: 'home',component: Home},
   // {path: '/about',name: 'about',

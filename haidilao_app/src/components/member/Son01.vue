@@ -27,7 +27,7 @@ export default {
     /* 海底捞会员 背景图片 */
     .bg_img{
         width:100%;height:200px;
-        background-image:url(../assets/member/bg.png);
+        background-image:url(../../assets/member/bg.png);
         background-size:contain;
         background-repeat:no-repeat;
         margin-top:30px;

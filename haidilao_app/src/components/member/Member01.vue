@@ -26,7 +26,7 @@ export default {
         /* margin-top:30px; */
     }
     .bg{
-        background-image:url(../assets/member/bg_login.png);
+        background-image:url(../../assets/member/bg_login.png);
         width:100%;height:200px;
         background-repeat:no-repeat;
         background-size:contain;

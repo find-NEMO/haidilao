@@ -20,7 +20,7 @@ router.get("/mto",(req,res)=>{
 // 已登录------->第二部分跳转
 router.get("/mtoto",(req,res)=>{
     console.log("已登录的跳转");
-    var sql="SELECT tpic_y,ttitle,tsubtitle0,tpic0 FROM member_tiaozhuan";
+    var sql="SELECT tid,tpic_y,ttitle,tsubtitle0,tpic0 FROM member_tiaozhuan";
     pool.query(sql,[],(err,result)=>{
       if(err) throw err;
       console.log(result);

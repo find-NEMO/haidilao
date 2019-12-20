@@ -7,14 +7,14 @@
             </li>
             <li class="li2">
                 <span>更多兑换</span>
-                <img src="../assets/member/go.png">
+                <img src="../../assets/member/go.png">
             </li>
         </ul>
         <!--  -->
         <ul class="flex">
             <li class="li11">
                 <router-link to="/lunboDetail/2">
-                    <img src="../assets/member/food1.png" alt="">
+                    <img src="../../assets/member/food1.png" alt="">
                     <p>小龙虾一盒套装</p>
                     <p>
                         <span>999捞币</span>
@@ -23,7 +23,7 @@
                 </router-link>
             </li>
             <li class="li12">
-                <img src="../assets/member/food2.png" alt="">
+                <img src="../../assets/member/food2.png" alt="">
                 <p>海底捞口袋坚果</p>
                 <p>
                     <span>1380捞币</span>
@@ -31,7 +31,7 @@
                 </p>
             </li>
             <li class="li13">
-                <img src="../assets/member/food3.png" alt="">
+                <img src="../../assets/member/food3.png" alt="">
                 <p>海底捞 捞派虾滑</p>
                 <p>
                     <span>1180捞币</span>

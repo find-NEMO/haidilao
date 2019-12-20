@@ -7,7 +7,7 @@
             </li>
             <li class="li2">
                 <span>等级规则</span>
-                <img src="../assets/member/go.png">
+                <img src="../../assets/member/go.png">
             </li>
         </ul>
         <p class="p1">
@@ -16,7 +16,7 @@
             <span>(持续享受到店服务可获得成长值)</span>
         </p>
         <!-- 滑块 -->
-        <div class="d1"><img src="../assets/member/img_close.png" alt=""></div>
+        <div class="d1"><img src="../../assets/member/img_close.png" alt=""></div>
         <p class="d2">下月生效0</p>
         <!-- 文字 -->
         <p class="p2">本月成长值计算周期：2019年06月01日-2019年11月30日</p>

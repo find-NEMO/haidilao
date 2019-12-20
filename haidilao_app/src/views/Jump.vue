@@ -53,7 +53,7 @@
     </div>
 </template>
 <script>
-import Jump01 from '../components/Jump01'
+import Jump01 from '../components/member/Jump01'
 export default {
     data(){
         return {

@@ -43,24 +43,24 @@ export default {
     }
     .bg1{
         width:170px;height:82px;
-        background-image:url(../assets/member/img001.png);
+        background-image:url(../../assets/member/img001.png);
         background-size:contain;
         margin-right:10px;
     }
     .bg2{
         width:170px;height:82px;
-        background-image:url(../assets/member/img0002.png);
+        background-image:url(../../assets/member/img0002.png);
         background-size:contain;
     }
     .bg3{
         width:170px;height:82px;
-        background-image:url(../assets/member/img0003.png);
+        background-image:url(../../assets/member/img0003.png);
         background-size:contain;
         margin:15px 10px 0 0;
     }
     .bg4{
         width:170px;height:82px;
-        background-image:url(../assets/member/img0004.png);
+        background-image:url(../../assets/member/img0004.png);
         background-size:contain;
         margin-top:15px;
     }

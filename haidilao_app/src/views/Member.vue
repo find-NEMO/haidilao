@@ -29,16 +29,16 @@
 <script>
 // 添加路径 Member
 // 引入子组件 
-import Son01 from '../components/Son01'
-import Member01 from '../components/Member01'
-import Son02 from '../components/Son02'
-import Member02 from '../components/Member02'
-import Son03 from '../components/Son03'
-import Son04 from '../components/Son04'
-import Member04 from '../components/Member04'
+import Son01 from '../components/member/Son01'
+import Member01 from '../components/member/Member01'
+import Son02 from '../components/member/Son02'
+import Member02 from '../components/member/Member02'
+import Son03 from '../components/member/Son03'
+import Son04 from '../components/member/Son04'
+import Member04 from '../components/member/Member04'
 // 补
-import Member05 from '../components/Member05'
-import Son05 from '../components/Son05'
+import Member05 from '../components/member/Member05'
+import Son05 from '../components/member/Son05'
 export default {
     data(){
         return {

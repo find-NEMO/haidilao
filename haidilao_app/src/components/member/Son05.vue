@@ -2,11 +2,11 @@
     <div>
         <p class="p_b">
             <span>会员须知</span>
-            <img src="../assets/member/right.png">
+            <img src="../../assets/member/right.png">
         </p>
         <p>
             <span>常见问题</span>
-            <img src="../assets/member/right.png">
+            <img src="../../assets/member/right.png">
         </p>
     </div>
 </template>
