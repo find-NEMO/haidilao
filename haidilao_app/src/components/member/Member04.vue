@@ -72,7 +72,7 @@
     }
     .d1 img{
         width:25px;
-        margin:-6px auto 0 170px;
+        margin:-14px auto 0 170px;
     }
     .d2{
         width:60px;height:18px;
@@ -81,6 +81,7 @@
         font-size:10px;
         border-radius:25px 0 25px 25px;
         margin-left:305px;
+        margin-top:10px;
     }
     .p2,.p3{
         font-size:9px;
@@ -89,7 +90,7 @@
     }
     .p2{
         margin-top:20px;
-        margin-bottom:-8px
+        margin-bottom:5px;
     }
     .hengxian{
         width:100%;height:5px;
