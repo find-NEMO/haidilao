@@ -1,5 +1,6 @@
 <template>
     <div>
+        <menu-head class="head"></menu-head>
         <div class="headimg">
             <a href="/menu" class="back">
                 <van-icon name="arrow-left" />
@@ -34,6 +35,7 @@
 <script>
 import menuFoot from "../components/menufoot";
 import changeCount from "../components/changeCount";
+import menuHead from "../components/menuheader";
 
 export default {
     created() {
@@ -41,8 +43,8 @@ export default {
     },
     components:{
         "menu-foot":menuFoot,
-        "change-count":changeCount
-
+        "change-count":changeCount,
+        "menu-head":menuHead
     },
     data() {
         return {

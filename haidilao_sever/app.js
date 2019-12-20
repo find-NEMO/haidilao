@@ -10,10 +10,12 @@ const history = require('connect-history-api-fallback');
 var index = require('./routes/index');
 var menu = require('./routes/menu');
 var member=require("./routes/member")
+var cart = require('./routes/cart');
+var user = require('./routes/user');
 //创建服务器
 var app = express();
 app.use(cors({
-    origin:['http://localhost:4000',"http://localhost:8080"], credentials: true
+    origin:['http://localhost:4000',"http://localhost:8080", "http://121.36.9.253:5000"], credentials: true
   }))
 var server = app.listen(4000, function () {
   var host = server.address().address
@@ -38,6 +40,8 @@ app.use(express.static(path.join(__dirname,"images")));
 app.use("/index",index);
 app.use("/product",menu);
 app.use("/member",member);
+app.use("/cart",cart);
+app.use("/user",user);
 
 app.use(function(req, res, next) {
     next(createError(404));
@@ -49,7 +53,7 @@ app.use(function(req, res, next) {
   
     // render the error page
     res.status(err.status || 500);
-    // res.render('error');
+    res.json(err);
   });
   
   module.exports = app; 
