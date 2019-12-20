@@ -2,7 +2,7 @@
   <div>
     <div id="bg">
       <div class="one">
-        <a href=""> <img src="../../assets/index/no_message_white.png" alt=""></a>
+        <router-link to="/IndexMessage"> <img src="../../assets/index/no_message_white.png" alt=""></router-link>
         <p> <input type="text" placeholder="搜索门店·内容·用户">
         <a href=""><img src="../../assets/index/laoxiaomi_icon.png" alt=""></a></p>
         <a href=""><img src="../../assets/index/laoxiaomi_kefu.png" alt=""></a>

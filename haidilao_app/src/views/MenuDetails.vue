@@ -22,7 +22,13 @@
                     </div>
                     <a href="javascript:;" @click="changeCount(1)">＋</a>
                 </div> -->
-                <change-count class="changecount"></change-count>
+                <change-count class="changecount"
+                    :cid="cid"
+                    :cname="rows.ctitle"
+                    :price="rows.price"
+                    :tid="rows.tno"
+                
+                ></change-count>
             </div>
         </div>
         <div class="details">
@@ -48,13 +54,15 @@ export default {
     },
     data() {
         return {
-            rows:{cpic:"wait.gif"}
+            rows:{cpic:"wait.gif"},
+            cid:1
         }
     },
     methods: {
         showDetails(){
             var arr=window.location.href.split("/");
             var cid=arr[arr.length-1];
+            this.cid=cid;
             var url="/product/detail/"+cid;
             this.axios.get(url)
             .then(res => {
