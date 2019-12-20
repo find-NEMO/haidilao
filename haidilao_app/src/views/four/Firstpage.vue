@@ -47,7 +47,7 @@
         </div>
         <p>我的动态</p>
         <div class="two">
-            <div class="icon">
+            <div class="icon icon1">
                 <div class="icon-left">
                     <img src="../../../public/icon/my_collect.png" alt="">
                     <router-link to="">收藏夹</router-link>
@@ -77,7 +77,7 @@
         </div>
         <p>我的服务</p>
         <div class="three">
-            <div class="icon">
+            <div class="icon icon1">
                 <div class="icon-left">
                     <img src="../../../public/icon/my_help.png" alt="">
                     <router-link to="">寻求帮助</router-link>
@@ -107,7 +107,7 @@
         </div>
         <p>关于海底捞</p>
         <div class="four">
-            <div class="icon">
+            <div class="icon icon1">
                 <div class="icon-left">
                     <img src="../../../public/icon/my_zhengji.png" alt="">
                     <router-link to="">海选征集</router-link>
@@ -136,7 +136,7 @@
             </div>
         </div>
         <div class="five">
-            <div class="icon">
+            <div class="icon icon1">
                 <div class="icon-left">
                     <img src="../../../public/icon/my_setting.png" alt="">
                     <router-link to="">设置</router-link>
@@ -271,8 +271,12 @@ export default {
 .icon{
     display: flex;
     justify-content: space-between;
-    padding:8px 10px 10px 10px;
+    padding:8px 10px 10px 0px;
     border-top:1px solid rgb(216, 216, 216);
+    margin-left: 15px;
+}
+.icon1{
+    border-top:0px;
 }
 .three{
     width:100%;
