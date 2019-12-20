@@ -1,11 +1,10 @@
 <template>
-    <div class="count">
+    <div class="count" @click="changeCount">
         <div v-show="count>0">
-            <a href="javascript:;" @click="changeCount(-1)" class="del">-</a>
-            <p>{{count}}</p>
+            <a href="javascript:;" class="del">-</a>
+            <p>0</p>
         </div>
-        <!-- <a href="javascript:;" @click="changeCount(1)" class="plus">+</a> -->
-        <van-icon name="add" @click="changeCount(1)" class="plus" color="#f00" />
+        <van-icon name="add" class="plus" color="#f00" @click="addcart()"/>
     </div>
 </template>
 <script>
@@ -16,14 +15,24 @@ export default {
         }
     },
     methods: {
-        changeCount(i){
-            this.count+=i;
+        changeCount(e){
+            var p;
+            var i;
+            if(e.target.className=="plus van-icon van-icon-add")
+            {
+                p=e.target.previousElementSibling.children[1];
+                i=1;
+            }else if(e.target.className=="del"){
+                p=e.target.nextElementSibling;
+                i=-1;
+                console.log(p.innerText);
+            }
             var url;
             var data;
-            if(this.count<1){
+            if(p.innerText==1){
                 url="/cart/del",
-                data={id:this.id}
-            }else{
+                data={cid:this.cid}
+            }else if(p.innerText==0){
                 url="/cart/add";
                 data={
                     cid:this.cid,
@@ -33,13 +42,17 @@ export default {
                     cnt:i
                 }
             }
+            console.log(url,data);
             this.axios.get(url,{params:data})
             .then((res)=>{
-                // console.log(res);
+                this.$store.commit("showlist");
             })
+        },
+        addcart(){
+
         }
     },
-    props:["cid","cname","price","tid","id"]
+    props:["cid","cname","price","tid"]
     
 }
 </script>

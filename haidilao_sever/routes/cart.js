@@ -95,6 +95,47 @@ router.get("/del",(req,res, next)=>{
 // 再次删除
 // http://127.0.0.1:4000/del?id=1
 
+// 功能四 清空购物车
+router.get("/clear",(req,res)=>{
+  // if(!req.session.uid){
+  //   console.log({code:-2,msg:"请登录"});
+  //   return;
+  // }
+  var uid=1;
+  var sql=`DELETE FROM hdl_cart WHERE uid=?`
+  pool.query(sql,[uid],(err,result)=>{
+    if(err) throw err;
+    if(result.affectedRows>0){
+      res.send({code:1,msg:"删除成功"});
+    }else{
+      res.send({code:-1,msg:"删除失败"});
+    }
+  })
+})
+// 测试
+// http://127.0.0.1:4000/cart/clear
+// 登录
+//http://127.0.0.1:4000/login?uname=tom&upwd=123
+// 再次删除
+// http://127.0.0.1:4000/delm?ids=1,2
+
+// 修改购物车数量
+router.get("/updatecount",(req,res)=>{
+  var uid=1;
+  var id=req.query.id;
+  var count=req.query.count;
+  var sql=`UPDATE hdl_cart SET count=count+${count} WHERE uid=${uid} AND id=${id}`
+  pool.query(sql,(err,result)=>{
+    if (err) throw err;
+    if(result.affectedRows>0){
+      res.send({code:1,msg:"修改成功"});
+    }else{
+      res.send({code:-1,msg:"修改失败"});
+    }
+  })
+})
+// 测试
+// http://127.0.0.1:4000/cart/updatecount?id=1&count=1
 
 module.exports=router;
 

@@ -25,8 +25,13 @@ export default {
             console.log(url);
             if(url=="menu"){
                 this.iconN="wap-home-o";
-                this.url="/index";
+                this.toURL="/index";
             }
+            if(url=="cart"){
+                this.iconN="arrow-left";
+                this.toURL="/menu";
+            }
+
         }
     },
 }
