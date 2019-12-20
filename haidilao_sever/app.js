@@ -15,7 +15,7 @@ var user = require('./routes/user');
 //创建服务器
 var app = express();
 app.use(cors({
-    origin:['http://localhost:4000',"http://localhost:8080", "http://121.36.9.253:5000"], credentials: true
+    origin:['http://localhost:4000',"http://localhost:8080", "http://121.36.9.253"], credentials: true
   }))
 var server = app.listen(4000, function () {
   var host = server.address().address

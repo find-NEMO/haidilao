@@ -12,36 +12,7 @@
     <!-- 话题 -->
     <topic></topic>
     <!-- 底部导航条 -->
-    <mt-tabbar v-model="active" fixed>
-      <mt-tab-item id="home" @click.native="changeState(1)">
-        <index-foot
-        :selectedImage="require('../assets/index/main_navbar_home_select.png')"
-        :normalImage="require('../assets/index/main_navbar_home_normal.png')"
-        :focused="currentIndex[0].isSelect"
-        ></index-foot>首页  
-      </mt-tab-item>
-      <mt-tab-item id="shequ" @click.native="changeState(2)">
-        <index-foot
-        :selectedImage="require('../assets/index/main_navbar_explore_select.png')"
-        :normalImage="require('../assets/index/main_navbar_explore_normal.png')"
-        :focused="currentIndex[0].isSelect"
-        ></index-foot>社区 
-      </mt-tab-item>
-      <mt-tab-item id="vip" @click.native="changeState(3)">
-        <index-foot
-        :selectedImage="require('../assets/index/main_navbar_associator_select.png')"
-        :normalImage="require('../assets/index/main_navbar_associator_normal.png')"
-        :focused="currentIndex[0].isSelect"
-        ></index-foot>会员 
-      </mt-tab-item>
-      <mt-tab-item id="my" @click.native="changeState(4)">
-        <index-foot
-        :selectedImage="require('../assets/index/main_navbar_mine_select.png')"
-        :normalImage="require('../assets/index/main_navbar_mine_normal.png')"
-        :focused="currentIndex[0].isSelect"
-        ></index-foot>我的 
-      </mt-tab-item>
-    </mt-tabbar>
+    <!-- <index-foot></index-foot> -->
   </div>
 </template>
 <script>
@@ -50,15 +21,14 @@ import MainMode from "../components/index/MainMode"
 import IndexLunbo from "../components/index/IndexLunbo"
 import IndexGoods from "../components/index/IndexGoods"
 import Topic from "../components/index/Topic"
-import IndexFoot from "../components/index/IndexFoot"
+// import IndexFoot from "../components/index/IndexFoot"
 export default {
   components:{
     TitleBar,
     MainMode,
     IndexLunbo,
     IndexGoods,
-    Topic,
-    IndexFoot
+    Topic
   },
   data(){
     return {
@@ -90,13 +60,13 @@ export default {
        
       }
       if(n==1){
-       this.$router.push("/home"); 
+       this.$router.go(0); 
        } else if(n==2) {
-         this.$router.push("/home");
+         this.$router.go(0); 
        }  else if(n==3){
           this.$router.push("/member");
        }else if(n==4){
-          this.$router.push("/home");
+          this.$router.go(0); 
        }
     }
   },

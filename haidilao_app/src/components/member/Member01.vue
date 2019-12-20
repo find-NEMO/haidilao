@@ -8,9 +8,11 @@
                 <span>我的会员码</span>
             </li>
             <li class="left">
-                <span class="size1">0</span>
-                <span class="size2">捞币</span>
-                <img src="" alt="">
+                <router-link to="/laobi">
+                    <span class="size1">0</span>
+                    <span class="size2">捞币</span>
+                    <img src="" alt="">
+                </router-link>
             </li>
             <li class="right">NO.8620191216018780</li>
         </ul>
@@ -42,26 +44,33 @@ export default {
     }
     /* 上面右边 */
     .wh{
-        width:110px;height:30px;
+        width:98px;height:30px;
         text-align: center;
         line-height:30px;
-        background:#fff;
+        /* background:#fff; */
+        background-image:url(../../assets/member/huiyuanma.png);
+        background-size:contain;
         color:#f00;
         font-size:12px;
         margin:40px 30px 0 90px;
-        border-radius:25px;
+        /* border-radius:25px; */
+    }
+    .wh span{
+        margin-left:14px;
     }
     /* 下面字体 */
     .left{
         color:#fff;
-        margin:-25px 0 13px 40px;
+        margin:-25px 0 12px 40px;
     }
     .size1{
         font-size:24px;
+        color:#fff;
     }
     .size2{
         font-size:14px;
         margin-left:5px;
+        color:#fff;
     }
     .right{
         color:#fff;

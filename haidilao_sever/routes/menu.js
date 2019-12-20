@@ -41,7 +41,7 @@ router.get("/type",(req,res, next)=>{
     //1:参数  页码  一页几行
     var cid = req.params.cid;
     //x:sql
-    var sql = " SELECT ctitle,cpic,soutitle,price,details FROM hdl_cai WHERE cid=?";
+    var sql = " SELECT ctitle,cpic,soutitle,price,details,tno FROM hdl_cai WHERE cid=?";
     pool.query(sql,[cid],(err,result)=>{
       if(err)return next(err);
       res.send({code:1,msg:"查询成功",data:result})

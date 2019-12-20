@@ -31,6 +31,7 @@ export default {
 *{
   padding:0;
   margin:0;
+  font-family: "Microsoft YaHei";
 }
   #firstFloor{
     padding:5px;
@@ -51,6 +52,8 @@ export default {
   }
   h4{
     color:#000;
+    font-size:16px;
+    font-weight: bold;
   }
   .one>a:first-child{
     background:url("../../assets/index/row_num_big.png") no-repeat;

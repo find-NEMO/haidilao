@@ -33,7 +33,11 @@ import Login from '../components/Login.vue'
 import Loginp from '../components/Loginp.vue'
 import Findpwd from '../components/Findpwd.vue'
 import Privacy from '../components/Privacy.vue'
-import test from '../views/test.vue'
+import home from '../views/Home.vue'
+import bbs from '../views/BBS.vue'
+import topic from '../components/bbs/topic'
+import bbsmessage from '../components/bbs/bbsmessage.vue'
+
 
 
 Vue.use(VueRouter)
@@ -70,11 +74,12 @@ const routes = [
   // }
   {path:"/menu",component:()=>import(/* webpackChunkName:"menu" */ "../views/Menu.vue")},
   {path:"/menudetails/:lid",component:()=>import(/* webpackChunkName:"menudetails" */ "../views/MenuDetails.vue")},
+  {path:"/cart",component:()=>import(/* webpackChunkName:"cart" */ "../views/Cart.vue")},
+
   {path:"/home",component:Index},
   {path:"/IndexLunboDetails/:id",
   component:IndexLunboDetails},
   {path:"/IndexLunboDetails/2",component:IndexLunboDetails},
-  {path:"/test",component:test},
   {
     path:"/login",
     component:()=>import(/* webpackChunkName:"login" */ "../components/Login.vue")
@@ -91,6 +96,10 @@ const routes = [
     path:"/findpwd",
     component:()=>import(/* webpackChunkName:"findpwd" */ "../components/Findpwd.vue")
   },
+  {path: '/',component: home},
+  {path: '/bbs',component: bbs},
+  {path: '/topic',component: topic},
+  {path: '/bbsmessage',component: bbsmessage}
 ]
 
 const router = new VueRouter({

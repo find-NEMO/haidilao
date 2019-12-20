@@ -16,7 +16,6 @@
         <span>+86</span>
         <input class="i_1" type="text" placeholder="请输入手机号码" 
         v-model="phone" />
-
         <input class="i_12" :type="this.registration_data.pwdType" placeholder="请输入密码" v-model="upwd"/>
         <img :src="this.registration_data.src" @click="changeType()" />
         <input :class="i" type="button" value="登陆" @click="login"/>
@@ -68,6 +67,19 @@ export default {
       }
     };
   },
+  watch:{
+      upwd(){
+        if(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(this.upwd)){
+          this.i={
+            i_2:false,i_3:true
+          }
+        }else{
+          this.i={
+            i_2:true,i_3:false
+          }
+        }
+      }
+    },
   methods: {
     changeType() {
       this.registration_data.pwdType =
@@ -96,16 +108,14 @@ export default {
       var url = "/user/loginp"
       var obj = {phone:phone,upwd:upwd}
       this.axios.get(url,{params:obj}).then(res=>{
+        console.log(res);
         if(res.data.code==-1){
           this.$messagebox("消息","用户名或密码有误")
         }else{
           console.log(111);
-          this.$router.push("/")}
+          this.$router.push("/home")}
       })
     },
-    watch:{
-      
-    }
   }
 };
 </script>

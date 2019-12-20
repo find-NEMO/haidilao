@@ -2,8 +2,10 @@
     <div>
         <ul>
             <li class="li1">
-                <span>捞币 0</span>
-                <span>击败0%的用户</span>
+                <router-link to="/laobi">
+                    <span>捞币 0</span>
+                    <span>击败0%的用户</span>
+                </router-link>
             </li>
             <li class="li2">
                 <span>更多兑换</span>
@@ -52,6 +54,7 @@
     .li1 span:first-child{
         font-size:17px;
         font-weight:600;
+        color:#000;
     }
     .li1 span:last-child{
         font-size:8px;
