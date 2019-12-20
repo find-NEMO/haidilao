@@ -9,12 +9,13 @@ const history = require('connect-history-api-fallback');
 //引入路由模块
 var index = require('./routes/index');
 var menu = require('./routes/menu');
+var member=require("./routes/member")
 var cart = require('./routes/cart');
 var user = require('./routes/user');
 //创建服务器
 var app = express();
 app.use(cors({
-    origin:['http://localhost:4000',"http://localhost:8080", "http://121.36.9.253:5000"], credentials: true
+    origin:['http://localhost:4000',"http://localhost:8080", "http://121.36.9.253"], credentials: true
   }))
 var server = app.listen(4000, function () {
   var host = server.address().address
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname,"images")));
 /*使用路由器来管理路由*/
 app.use("/index",index);
 app.use("/product",menu);
+app.use("/member",member);
 app.use("/cart",cart);
 app.use("/user",user);
 

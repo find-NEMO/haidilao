@@ -10,17 +10,18 @@
                 <a href="" class="help">帮助</a>
             </div>
         </div>
-        <!-- <Son01></Son01> -->
-        <Member01></Member01>
+        <!-- 会员 -->
+        <Son01 v-if="isLogin==false"></Son01>
+        <Member01 v-else></Member01>
         <!-- 链接 -->
-        <!-- <Son02></Son02> -->
-        <Member02></Member02>
+        <Son02 v-if="isLogin==false"></Son02>
+        <Member02 v-else></Member02>
         <!-- 轮播图 -->
         <Son03></Son03>
         <!-- 捞币可兑多种大礼 -->
-        <!-- <Son04></Son04> -->
-        <Member04></Member04>
-        <Member05></Member05>
+        <Son04 v-if="isLogin==false"></Son04>
+        <Member04 v-else></Member04>
+        <Member05 v-show="isLogin==true"></Member05>
         <!-- 会员须知 常见问题 -->
         <Son05></Son05>
     </div>
@@ -28,20 +29,20 @@
 <script>
 // 添加路径 Member
 // 引入子组件 
-// import Son01 from '../components/Son01'
-import Member01 from '../components/Member01'
-// import Son02 from '../components/Son02'
-import Member02 from '../components/Member02'
-import Son03 from '../components/Son03'
-// import Son04 from '../components/Son04'
-import Member04 from '../components/Member04'
+import Son01 from '../components/member/Son01'
+import Member01 from '../components/member/Member01'
+import Son02 from '../components/member/Son02'
+import Member02 from '../components/member/Member02'
+import Son03 from '../components/member/Son03'
+import Son04 from '../components/member/Son04'
+import Member04 from '../components/member/Member04'
 // 补
-import Member05 from '../components/Member05'
-import Son05 from '../components/Son05'
+import Member05 from '../components/member/Member05'
+import Son05 from '../components/member/Son05'
 export default {
     data(){
         return {
-
+            isLogin:true
         }
     },
     methods:{
@@ -49,16 +50,15 @@ export default {
     },
     components:{
         // 注册子组件
-        // "Son01":Son01,
+        "Son01":Son01,
         "Member01":Member01,
-        // "Son02":Son02,
+        "Son02":Son02,
         "Member02":Member02,
         "Son03":Son03,
-        // "Son04":Son04,
+        "Son04":Son04,
         "Member04":Member04,
         "Member05":Member05,
         "Son05":Son05
-        
     }
 }
 </script>
