@@ -31,6 +31,10 @@ import Login from '../components/Login.vue'
 import Loginp from '../components/Loginp.vue'
 import Findpwd from '../components/Findpwd.vue'
 import Privacy from '../components/Privacy.vue'
+import home from '../views/Home.vue'
+import bbs from '../views/BBS.vue'
+import topic from '../components/bbs/topic'
+import bbsmessage from '../components/bbs/bbsmessage.vue'
 
 
 
@@ -87,6 +91,10 @@ const routes = [
     path:"/findpwd",
     component:()=>import(/* webpackChunkName:"findpwd" */ "../components/Findpwd.vue")
   },
+  {path: '/',component: home},
+  {path: '/bbs',component: bbs},
+  {path: '/topic',component: topic},
+  {path: '/bbsmessage',component: bbsmessage}
 ]
 
 const router = new VueRouter({

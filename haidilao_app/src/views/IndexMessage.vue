@@ -2,7 +2,7 @@
     <div>
         <!-- 头 -->
         <div class="top">
-            <router-link to=""><img src="../assets/member/member_details/left.png"></router-link>
+            <router-link to="/home"><img src="../assets/member/member_details/left.png"></router-link>
             <p>消息</p>
         </div>
         <!-- 提示 -->
@@ -48,6 +48,7 @@
                 <img class="img" src="../assets/member/right.png" alt="">
             </li>
         </ul>
+        
     </div>
 </template>
 <script>
@@ -61,7 +62,7 @@ export default {
         quxiao(){
             this.isShow=false
         }
-    }
+    },
 }
 </script>
 <style scoped>

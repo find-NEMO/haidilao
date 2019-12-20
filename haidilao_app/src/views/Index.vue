@@ -12,7 +12,7 @@
     <!-- 话题 -->
     <topic></topic>
     <!-- 底部导航条 -->
-    <index-foot></index-foot>
+    <!-- <index-foot></index-foot> -->
   </div>
 </template>
 <script>
@@ -21,15 +21,14 @@ import MainMode from "../components/index/MainMode"
 import IndexLunbo from "../components/index/IndexLunbo"
 import IndexGoods from "../components/index/IndexGoods"
 import Topic from "../components/index/Topic"
-import IndexFoot from "../components/index/IndexFoot"
+// import IndexFoot from "../components/index/IndexFoot"
 export default {
   components:{
     TitleBar,
     MainMode,
     IndexLunbo,
     IndexGoods,
-    Topic,
-    IndexFoot
+    Topic
   },
   data(){
     return {

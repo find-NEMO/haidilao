@@ -81,9 +81,3 @@ export default {
   }
   
 </style>
-<style>
-  .mint-tab-item-label{
-    margin-top:10px;
-    margin-right:-10px;
-  }
-</style>
