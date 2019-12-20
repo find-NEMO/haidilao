@@ -113,7 +113,7 @@ export default {
           this.$messagebox("消息","用户名或密码有误")
         }else{
           console.log(111);
-          this.$router.push("/home")}
+          this.$router.push("/")}
       })
     },
   }
