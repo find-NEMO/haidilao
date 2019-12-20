@@ -37,7 +37,6 @@ import test from '../views/test.vue'
 
 
 Vue.use(VueRouter)
-Vue.use(Popup,Area,Picker)
 
 const routes = [
   {path:'/laobi',component:laobi},
