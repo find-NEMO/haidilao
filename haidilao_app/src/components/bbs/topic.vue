@@ -54,7 +54,7 @@ export default {
             topic:['/topic1','/topic1','/topic1','/topic1','/topic1','/topic1']
         }
     },
-    methods:{},
+
     components:{
         "bbsmessage":bbsmessage
     }

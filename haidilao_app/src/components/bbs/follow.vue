@@ -5,10 +5,10 @@
 </template>
 <script>
 
-import bbsmessage from "./bbsmessage"
 
+import bbsmessage from './bbsmessage'
 export default {
-    component:{
+    components:{
         "bbsmessage":bbsmessage
     }
 }

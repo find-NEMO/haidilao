@@ -25,7 +25,7 @@ export default {
             console.log(url);
             if(url=="menu"){
                 this.iconN="wap-home-o";
-                this.toURL="/home";
+                this.toURL="/";
             }
             if(url=="cart"){
                 this.iconN="arrow-left";
