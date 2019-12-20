@@ -8,21 +8,9 @@
         <!-- lunbo -->
         <div id="lunbo">
         <mt-swipe :show-indicators="false">
-            <mt-swipe-item><a href=""><img src="../../assets/index/topic1.png" alt="">
-                <p><span>#一句话总结2019#</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;309</span></p>
-                <p>年度总结大全</p>
-            </a></mt-swipe-item>
-            <mt-swipe-item><a href=""><img src="../../assets/index/topic2.png" alt="">
-                <p><span>#一直瞒着妈妈的事#</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;122</span></p>
-                <p>有些事绝对不能跟妈妈说</p>
-            </a></mt-swipe-item>
-            <mt-swipe-item><a href=""><img src="../../assets/index/topic3.png" alt="">
-                <p><span>#解辣应该喝什么#</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;371</span></p>
-                <p>又讲互动：你觉得哪个饮料跟火锅最配</p>
-            </a></mt-swipe-item>
-            <mt-swipe-item><a href=""><img src="../../assets/index/topic4.png" alt="">
-                <p><span>#最想实现的新年愿#</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;402</span></p>
-                <p>转锦鲤不如我捞你啊</p>
+            <mt-swipe-item v-for="(item,i) of topic" :key="i"><a href=""><img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL">
+                <p><span>{{item.b_title}}</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;{{item.topic_count}}</span></p>
+                <p>{{item.s_title}}</p>
             </a></mt-swipe-item>
         </mt-swipe>
         </div>
@@ -32,8 +20,16 @@
 export default {
   data(){
     return {
-      
+      topic:[]
     }
+  },
+  created(){
+    var url = "index/topic";
+    console.log(2);
+    this.axios.get(url).then(res=>{
+      console.log(res.data);
+      this.topic=res.data;
+    })
   }
 }
 </script>
