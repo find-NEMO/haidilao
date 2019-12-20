@@ -11,8 +11,8 @@ export default {
     },
     data() {
         return {
-            iconN:"wap-home-o",
-            toURL:"/home"
+            iconN:"arrow-left",
+            toURL:"/menu"
         }
     },
     methods: {
@@ -25,8 +25,13 @@ export default {
             console.log(url);
             if(url=="menu"){
                 this.iconN="wap-home-o";
-                this.url="/index";
+                this.toURL="/home";
             }
+            if(url=="cart"){
+                this.iconN="arrow-left";
+                this.toURL="/menu";
+            }
+
         }
     },
 }

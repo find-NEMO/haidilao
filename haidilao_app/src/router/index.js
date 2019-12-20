@@ -71,6 +71,8 @@ const routes = [
   // }
   {path:"/menu",component:()=>import(/* webpackChunkName:"menu" */ "../views/Menu.vue")},
   {path:"/menudetails/:lid",component:()=>import(/* webpackChunkName:"menudetails" */ "../views/MenuDetails.vue")},
+  {path:"/cart",component:()=>import(/* webpackChunkName:"cart" */ "../views/Cart.vue")},
+
   {path:"/home",component:Index},
   {path:"/IndexLunboDetails/:id",
   component:IndexLunboDetails},

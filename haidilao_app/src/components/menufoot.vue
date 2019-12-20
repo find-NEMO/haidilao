@@ -1,30 +1,37 @@
 <template>
     <div>
         <van-goods-action>
-            <van-goods-action-icon icon="cart-o" text="购物车" :info="info" @click="onshow"/>
-            <p class="price">{{totalprice}}</p>
-            <van-goods-action-button type="danger" text="下单" />
+            <van-goods-action-icon icon="cart-o" text="购物车" :info="$store.getters.gettotalcount" @click="onshow"/>
+            <p class="price">{{$store.getters.gettotalprice}}</p>
+            <van-goods-action-button type="danger" text="下单" @click="toCart"/>
         </van-goods-action> 
         <van-popup v-model="show" position="bottom" class="menuCar">
             <main>
                 <div class="carhead">
                     <h3>购物车</h3>
-                    <a href="">
+                    <a href="javascript:;" @click="clearCart">
                         <van-icon name="delete" />
                         清空购物车
                     </a>
                 </div>
-                <div v-for="(item,i) of cartlist" :key="i" class="carlist">
-                    <p>{{item.cname}}</p>
-                    <div>
+                <div class="carbox">
+                    <div v-for="(item,i) of $store.getters.getcarlist" :key="i" class="carlist" >
+                        <p>{{item.cname}}</p>
                         <p class="price">¥{{item.count*item.price}}</p>
-                        <change-count class="count"
-                            :count="item.count"
-                            :id="item.id"
-                            :showlist="showlist"
-                        ></change-count>
+                        <div class="count" >
+                            <div>
+                                <a href="javascript:;" class="del" @click="subCount(item.id,item.count)">-</a>
+                                <p>{{item.count}}</p>
+                            </div>
+                            <van-icon name="add" class="plus" color="#f00" @click="changeCount(item.id,1)"/>
+                        </div>
+                            <!-- <change-count class="count"
+                                :count="item.count"
+                                :id="item.id"
+                                :showlist="showlist"
+                            ></change-count> -->
                     </div>
-                </div>
+                </div>    
             </main> 
         </van-popup> 
     </div>
@@ -44,9 +51,6 @@ export default {
     data() {
         return {
             show:false,
-            cartlist:[],
-            info:0,
-            totalprice:0
         }
     },
     methods: {
@@ -60,16 +64,71 @@ export default {
 
         },
         showlist(){
-            this.axios.get("/cart/list")
-            .then(res=>{
-                this.cartlist=res.data.data;
-                this.info=0;
-                this.totalprice=0;
-                for(var i=0;i<this.cartlist.length;i++){
-                    this.info+=this.cartlist[i].count;
-                    this.totalprice+=this.cartlist[i].count*this.cartlist[i].price;
+            this.$store.commit("showlist");
+        },
+        toCart(){
+            this.$router.push("/cart")
+        },
+        // 添加购物车
+        changeCount(id,i){
+            var data={
+                id:id,
+                count:i
                 }
-            })            
+            console.log(data);
+            this.axios.get("/cart/updatecount",{params:data})
+            .then((res)=>{
+                this.$store.commit("showlist");    
+            })          
+        },
+        // 减少购物车
+        subCount(id,count){
+            console.log(id,count);
+            if(count<=1){
+                this.axios.get("/cart/del",{params:{id:id}})
+                .then((res)=>{
+                    this.$store.commit("showlist");   
+                })          
+            }else{
+                this.changeCount(id,-1);
+            }
+        },
+
+        // changeCount(e,id,i){
+        //     console.log(i);
+        //     var p;
+        //     if(i==1)
+        //     {
+        //         p=e.currentTarget.previousElementSibling.children[1];
+        //     }else if(i==-1){
+        //         p=e.currentTarget.nextElementSibling;
+        //         console.log(p);
+        //     }
+        //     var url;
+        //     var data;
+        //     // if(p.innerText==1){
+        //     //     url="/cart/del",
+        //     //     data={id:this.id}
+        //     // }else{
+        //     //     url="/cart/add";
+        //     //     data={
+        //     //         cid:this.cid,
+        //     //         cname:this.cname,
+        //     //         price:this.price,
+        //     //         tid:this.tid,
+        //     //         cnt:i
+        //     //     }
+        //     // }
+        //     // this.axios.get(url,{params:data})
+        //     // .then((res)=>{
+        //     //     // console.log(res);
+        //     // })
+        // },
+        clearCart(){
+            this.axios.get("cart/clear")
+            .then(res=>{
+                this.$store.commit("showlist");
+            })
         }
     },    
 }
@@ -90,11 +149,42 @@ export default {
         color: #9391a6;
         line-height: 62.75px;
     }
-    .carlist{border-bottom: 1px solid #9391a6;}
-    .carlist>div{width: 40%;}
+    .carbox{overflow: auto;height: 30rem;}
+    .carlist{
+        border-bottom: 1px solid #9391a6;
+        line-height: 41px;
+    }
+    .carlist>p:first-child{width: 30%;}
     .carlist .price{
         color: #f00;
         font-weight: bold;
     }
-    .count{color: #9391a6}
+    .count{
+        color: #9391a6;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 2rem;
+    }
+    .del{
+        color: #f00;
+        background:transparent;
+        border:1px solid #f00;
+        width: 25px;height: 25px;
+        margin-top: 7.5px;
+        border-radius: 50%;
+        line-height: 25px;
+        text-align: center;
+    }
+    .plus{
+        border-radius: 50%;
+        margin-top:5px;
+    }
+    .count p{
+        margin: 0 1rem;
+        text-align: center;
+    }
+    .count>div{
+        display: flex;
+    }
+
 </style>

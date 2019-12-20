@@ -13,21 +13,21 @@
         <!-- <menu-list class="right"></menu-list>   -->
         <div class="right">
             <ul class="menuList">
-                <li v-for="(cai,i) of rows" :key="i">
-                    <router-link :to="`/menudetails/${cai.cid}`">
-                        <img :src="`http://127.0.0.1:4000/${cai.cpic}`" alt="">
+                <li v-for="(item,i) of rows" :key="i">
+                    <router-link :to="`/menudetails/${item.cid}`">
+                        <img :src="`http://127.0.0.1:4000/${item.cpic}`" alt="">
                     </router-link>
-                    <p class="caiTitle">{{cai.ctitle}}</p>
+                    <p class="caiTitle">{{item.ctitle}}</p>
                     <!-- <van-icon name="add-o" color="#f00" class="iconPlus" size="3rem" /> -->
                     <change-count class="count"
-                        :cid="cai.cid"
-                        :cname="cai.ctitle"
-                        :price="cai.price"
+                        :cid="item.cid"
+                        :cname="item.ctitle"
+                        :price="item.price"
                         :tid="tNum"
                     ></change-count>
                     <p class="caiDes">
-                        <span class="caitext">{{cai.soutitle}}</span>
-                        <span class="price">¥{{cai.price}}</span>
+                        <span class="caitext">{{item.soutitle}}</span>
+                        <span class="price">¥{{item.price}}</span>
                     </p>
                 </li>
             </ul>
@@ -85,18 +85,18 @@ export default {
                 this.tabs=res.data.data;
             })
         },
-        showlist(){
-            this.axios.get("/cart/list")
-            .then(res=>{
-                this.cartlist=res.data.data;
-                this.info=0;
-                this.totalprice=0;
-                for(var i=0;i<this.cartlist.length;i++){
-                    this.info+=this.cartlist[i].count;
-                    this.totalprice+=this.cartlist[i].count*this.cartlist[i].price;
-                }
-            })            
-        }
+        // showlist(){
+        //     this.axios.get("/cart/list")
+        //     .then(res=>{
+        //         this.cartlist=res.data.data;
+        //         this.info=0;
+        //         this.totalprice=0;
+        //         for(var i=0;i<this.cartlist.length;i++){
+        //             this.info+=this.cartlist[i].count;
+        //             this.totalprice+=this.cartlist[i].count*this.cartlist[i].price;
+        //         }
+        //     })            
+        // }
 
     },
     

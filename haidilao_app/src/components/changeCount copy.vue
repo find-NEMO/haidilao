@@ -16,13 +16,14 @@ export default {
         }
     },
     methods: {
-        changeCount(i){
+        changeCount(e,i){
+            console.log(e.target);
             this.count+=i;
             var url;
             var data;
             if(this.count<1){
                 url="/cart/del",
-                data={id:this.id}
+                data={cid:this.cid}
             }else{
                 url="/cart/add";
                 data={
@@ -33,10 +34,7 @@ export default {
                     cnt:i
                 }
             }
-            this.axios.get(url,{params:data})
-            .then((res)=>{
-                // console.log(res);
-            })
+            this.$store.commit(url,data);
         }
     },
     props:["cid","cname","price","tid","count","id"]
