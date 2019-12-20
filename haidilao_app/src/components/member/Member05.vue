@@ -15,7 +15,7 @@
         <!--  -->
         <ul class="flex">
             <li class="li11">
-                <router-link to="/lunboDetail/2">
+                <router-link to="/IndexLunboDetails/2">
                     <img src="../../assets/member/food1.png" alt="">
                     <p>小龙虾一盒套装</p>
                     <p>
