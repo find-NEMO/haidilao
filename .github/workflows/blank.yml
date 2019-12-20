@@ -42,5 +42,5 @@ jobs:
           npm --prefix /root/haidilao/haidilao_sever/ install 
           fuser -k 4000/tcp
           fuser -k 5000/tcp
-          nohup npm --prefix /root/haidilao/haidilao_sever/ run serve > ./sever.out 2>&1 &
-          nohup serve -s /root/haidilao/haidilao_app/dist > /dev/null 2>&1 &
+          nohup npm --prefix /root/haidilao/haidilao_sever/ run serve > ./haidilao_sever.out 2>&1 &
+          nohup serve -l 80 -s /root/haidilao/haidilao_app/dist > /dev/null 2>&1 &
