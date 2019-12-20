@@ -22,11 +22,11 @@ export default {
             {
                 p=e.target.previousElementSibling.children[1];
                 i=1;
-            }else if(e.target.className=="del"){
-                p=e.target.nextElementSibling;
-                i=-1;
-                console.log(p.innerText);
-            }
+            // }else if(e.target.className=="del"){
+            //     p=e.target.nextElementSibling;
+            //     i=-1;
+            //     console.log(p.innerText);
+            // }
             var url;
             var data;
             if(p.innerText==1){
@@ -47,6 +47,7 @@ export default {
             .then((res)=>{
                 this.$store.commit("showlist");
             })
+            }
         },
         addcart(){
 

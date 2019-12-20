@@ -14,22 +14,24 @@
                         清空购物车
                     </a>
                 </div>
-                <div v-for="(item,i) of $store.getters.getcarlist" :key="i" class="carlist" >
-                    <p>{{item.cname}}</p>
-                    <p class="price">¥{{item.count*item.price}}</p>
-                    <div class="count" >
-                        <div>
-                            <a href="javascript:;" class="del" @click="subCount(item.id,item.count)">-</a>
-                            <p>{{item.count}}</p>
+                <div class="carbox">
+                    <div v-for="(item,i) of $store.getters.getcarlist" :key="i" class="carlist" >
+                        <p>{{item.cname}}</p>
+                        <p class="price">¥{{item.count*item.price}}</p>
+                        <div class="count" >
+                            <div>
+                                <a href="javascript:;" class="del" @click="subCount(item.id,item.count)">-</a>
+                                <p>{{item.count}}</p>
+                            </div>
+                            <van-icon name="add" class="plus" color="#f00" @click="changeCount(item.id,1)"/>
                         </div>
-                        <van-icon name="add" class="plus" color="#f00" @click="changeCount(item.id,1)"/>
+                            <!-- <change-count class="count"
+                                :count="item.count"
+                                :id="item.id"
+                                :showlist="showlist"
+                            ></change-count> -->
                     </div>
-                        <!-- <change-count class="count"
-                            :count="item.count"
-                            :id="item.id"
-                            :showlist="showlist"
-                        ></change-count> -->
-                </div>
+                </div>    
             </main> 
         </van-popup> 
     </div>
@@ -147,6 +149,7 @@ export default {
         color: #9391a6;
         line-height: 62.75px;
     }
+    .carbox{overflow: auto;height: 30rem;}
     .carlist{
         border-bottom: 1px solid #9391a6;
         line-height: 41px;
