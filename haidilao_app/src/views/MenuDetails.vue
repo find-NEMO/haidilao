@@ -7,7 +7,7 @@
                 继续选购
             </a>
             <div class="img">
-                <img :src="`http://127.0.0.1:4000/${rows.cpic}`" alt="">
+                <img :src="`http://121.36.9.253:4000/${rows.cpic}`" alt="">
             </div>    
             <p>图片仅供参考，请以实物为准</p>
         </div>

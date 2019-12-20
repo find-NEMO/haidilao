@@ -15,7 +15,7 @@
             <ul class="menuList">
                 <li v-for="(item,i) of rows" :key="i">
                     <router-link :to="`/menudetails/${item.cid}`">
-                        <img :src="`http://127.0.0.1:4000/${item.cpic}`" alt="">
+                        <img :src="`http://121.36.9.253:4000/${item.cpic}`" alt="">
                     </router-link>
                     <p class="caiTitle">{{item.ctitle}}</p>
                     <!-- <van-icon name="add-o" color="#f00" class="iconPlus" size="3rem" /> -->
