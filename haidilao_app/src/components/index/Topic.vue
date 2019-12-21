@@ -7,12 +7,10 @@
         </div>
         <!-- lunbo -->
         <div id="lunbo">
-        <div :show-indicators="false">
             <div v-for="(item,i) of topic" :key="i"><a href=""><img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL">
                 <p><span>{{item.b_title}}</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;{{item.topic_count}}</span></p>
                 <p>{{item.s_title}}</p>
             </a></div>
-        </div>
         </div>
     </div>
 </template>
@@ -58,13 +56,20 @@ export default {
         width:5px;
         margin-left:5px;
     }
-    #lunbo>div{
-        width:300%;
-        display:flex;
+    #lunbo{
+        white-space: nowrap;/*文本不会换行，文本会在在同一行上继续*/
+        overflow-y:auto;/*可滑动*/
     }
-    #lunbo>div>div{
-        width:80%;
-        margin-right:15px;
+    /*自定义滚动条的伪对象选择器, CSS 可以隐藏滚动条*/
+	#lunbo::-webkit-scrollbar{
+		display: none;
+	}
+    #lunbo>div{
+        width: 80%;
+        margin-left: 3%;
+        height: 100px;
+        background: #fff;
+        display: inline-block;/*行内块元素*/
     }
     #lunbo a{
         display:block;
@@ -93,7 +98,4 @@ export default {
        color:#666;
        font-size: 12px;
    }
-  #lunbo a p:last-child{
-      padding-bottom:15px;
-  }
 </style>
