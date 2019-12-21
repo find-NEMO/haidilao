@@ -35,6 +35,9 @@ export default {
 }
 </script>
 <style scoped>
+a{
+    text-decoration: none;
+}
 .goods .title{
     padding:0px 13px;
 }

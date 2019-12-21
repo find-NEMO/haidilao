@@ -32,6 +32,7 @@ export default {
   padding:0;
   margin:0;
   font-family: "Microsoft YaHei";
+  text-decoration:none;
 }
   #firstFloor{
     padding:5px;

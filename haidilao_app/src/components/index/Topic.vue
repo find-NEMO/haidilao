@@ -7,12 +7,12 @@
         </div>
         <!-- lunbo -->
         <div id="lunbo">
-        <mt-swipe :show-indicators="false">
-            <mt-swipe-item v-for="(item,i) of topic" :key="i"><a href=""><img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL">
+        <div :show-indicators="false">
+            <div v-for="(item,i) of topic" :key="i"><a href=""><img :src="axios.defaults.baseURL + item.img_url" :alt="axios.defaults.baseURL">
                 <p><span>{{item.b_title}}</span><span><img src="../../assets/index/topic_count.png" alt="">&nbsp;{{item.topic_count}}</span></p>
                 <p>{{item.s_title}}</p>
-            </a></mt-swipe-item>
-        </mt-swipe>
+            </a></div>
+        </div>
         </div>
     </div>
 </template>
@@ -34,28 +34,37 @@ export default {
 }
 </script>
 <style scoped>
+    a{
+      text-decoration: none;
+    }
     .topic{
         height:400px;
         padding:5px;
+        margin-top:15px;
     }
     .title{
         display:flex;
         justify-content: space-between;
-        padding:0 10px;
+        padding:0 5px;
     }
     h4{
         margin-bottom:10px;
     }
     .title a{
-        margin-top:20px;
+        margin-top:10px;
         font-size:12px;
     }
     .title img{
         width:5px;
         margin-left:5px;
     }
-    #lunbo{
-        height:380px;
+    #lunbo>div{
+        width:300%;
+        display:flex;
+    }
+    #lunbo>div>div{
+        width:80%;
+        margin-right:15px;
     }
     #lunbo a{
         display:block;
